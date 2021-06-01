@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/sap/Z_C_COUNTRY_MONITORING_REP_CDS/$metadata">
+		<edmx:Include Alias="Z_C_COUNTRY_MONITORING_REP_CDS" Namespace="Z_C_COUNTRY_MONITORING_REP_CDS"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
+			Namespace="AkerBP.FI.countrymonitoring.rep.zcountrymoni.Z_C_COUNTRY_MONITORING_REP_CDS">
+			<!--===============================================================================
+                Entity Type from chosen collection 
+                ================================================================================-->
+			<Annotations Target="Z_C_COUNTRY_MONITORING_REP_CDS.Z_C_COUNTRY_MONITORING_REPType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#CountryDetail"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;COUNTRY_DETAILS}"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;SUPPLIER_DETAILS}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n&gt;SUPPLIER_DETAILS}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SupplierDetail"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_bank/@UI.LineItem"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;BANKS}"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,1 @@
+sap.ui.define(["sap/suite/ui/generic/template/lib/AppComponent"],function(n){return n.extend("AkerBP.FI.countrymonitoring.rep.zcountrymoni.Component",{metadata:{manifest:"json"}})});
